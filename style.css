@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #bdcebe;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    min-height: 1.5rem;
+}
+header{
+    font-size: 2.5rem;
+    min-height: 20vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: underline;
+}
+ input, button{
+    padding:0.5rem;
+    font-size: 2rem;
+    border: none;
+    background: white;
+
+    
+
+}
+input{
+    margin-bottom: 1rem;
+}
+button{
+    color: #d88771;
+    background: white;
+    cursor:pointer;
+    transition: all 0.3s ease;
+}
+ button:hover{
+    background: #d88771;
+    color: white;
+}
+ul{
+    display: flex;
+    flex-direction: column;
+   
+    background: #cacaca;
+    margin: 0;
+    padding: 0; 
+}
+h2,h3{
+    margin: 1.5rem 1rem 1.5rem 1rem;
+}
+li{
+    display: flex;
+    
+    background: #434870;;
+
+}
+.box, .close{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+ 
+}
+.box{
+    margin-left: 2rem;
+}
+ul li.checked{
+    background: #fda085;
+    color:black;
+    text-decoration: line-through;
+}
+ul li.checked::after{
+    content: '';
+    position: relative;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0 2px 2px 0;
+    
+    left: 16px;
+    transform: rotate(45deg);
+    height: 15px;
+    width: 7px;
+}
+
+#page{
+    margin: 30px 10px 30px 10px;
+}
+.close{
+    
+       
+        background-color:#3b527a;
+        border-radius:12px;
+        border:2px solid #939bb4;
+    
+      margin-bottom: 10px;
+        cursor:pointer;
+        color:#ffffff;
+        font-family: "Poppins", sans-serif;
+        font-size:18px;
+        font-weight:bold;
+        
+        text-decoration:none;
+        text-shadow:0px 1px 0px #4c1661;
+    }
+    
+    
+

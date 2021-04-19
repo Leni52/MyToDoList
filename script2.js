@@ -16,60 +16,50 @@ function neuesLi(eingabetext){
     let papa = document.querySelector('.beispiel');
     papa.appendChild( neuLi );
 
-    var x = document.createElement("INPUT");
-    x.setAttribute("type", "checkbox");
-    x.setAttribute("class", "box");
-    //x.style.display = 'inline-block';
+        
     
-    papa.appendChild(x);
 
-     var btnClose = document.createElement('button');
+    var btnClose = document.createElement('button');
     btnClose.type='button';
     btnClose.innerHTML='Delete this task';
     btnClose.className="close";
-    btnClose.onclick = deleteFunc;
+   
 
     papa.appendChild(btnClose);
 }
 //////////////////////
 //
-var ulList = document.querySelector('ul');
-		ulList.addEventListener('click', function(ev){
-			if(ev.target.tagName ==='LI'){
-				ev.target.classList.toggle('checked');
-			}
-		},false);
-////////////////////
-//create delete function to remove all items - li, checkbox, btn
+var ulList = document.getElementsByTagName('ul');
 
-var boxes =  document.getElementsByClassName('box');
-var i;
+for(var k = 0; k<ulList.length; k++){
+ulList[k].addEventListener('click', function(ev){
+    if(ev.target.tagName ==='LI'){
+        ev.target.classList.toggle('checked');
+    }
+},false);
+};
+
+
+
+
+////////////////////
+//create delete function to remove all items - li,btn
+
+
+
+
+var close = document.getElementsByClassName('close');
+for(i=0; i<close.length; i++){
+    
+    close[i].onclick = function(){
+        
 var papa = document.getElementsByTagName('ul');
 var textLi = document.getElementsByTagName('li');
-var close = document.getElementsByClassName("close");
 
-
-function deleteFunc(){
-
-    for(var i=0; i<boxes.length; i++){
-        
-        var kind = boxes[i];
-         if(kind.checked==true){               
-       
-                textLi[i].remove();
-                boxes[i].remove();
-                close[i].remove();
-
-         }
-
+textLi[i].style.display="none";
     }
-
 }
 
-
-updatecount();			
-
- 
  //////////////////////////////////
  //enter new task   
 function enterabfrage( event ){
@@ -91,7 +81,6 @@ function updatecount(){
 
 
 document.getElementById('eingabe').addEventListener('keypress', enterabfrage );
-//document.getElementById('entfernen').addEventListener('click', loescheLi );
 document.getElementById('auswahl').addEventListener('click',
     function(){
         neuesLi( eingabe.value );
@@ -114,12 +103,34 @@ var myInit = {
 
 //let myRequest = new Request("/myData.json", myInit);
 
-fetch("/myData.json")
+fetch("http://127.0.0.1:8080/myData.json")
 .then(function(resp){
     return resp.json();
 })
 .then(function(data){
-//console.log(data.tasks[1].task);
+    var oldTasks = "";
+
+    for(var j=0; j<data.tasks.length; j++){
+
+        let oldLi = document.createElement('li');
+    let oldText = document.createTextNode(data.tasks[0].task);
+    oldLi.appendChild( oldText );
+    oldLi.setAttribute('class','border');
+
+ let parent = document.getElementById('tasks');
+ parent.appendChild(oldLi);
+
+ var btnClose = document.createElement('button');
+    btnClose.type='button';
+    btnClose.innerHTML='Delete this task';
+    btnClose.className="close";
+
+parent.appendChild(btnClose);
+
+    }
+    
+
+console.log(data.tasks[1].task);
 });
 
 
@@ -134,7 +145,7 @@ const jsonString = JSON.stringify(dataToSend);
 
 const data = { task: 'example' };
 
-fetch('/myData.json', {
+fetch('http://127.0.0.1:8080/myData.json', {
   method: 'POST', 
   headers: {
     'Content-Type': 'application/json',
@@ -151,12 +162,17 @@ fetch('/myData.json', {
 
 */
  
-
+/*
 var addedTask = document.getElementById('eingabe').value;
 
 
 
 localStorage.setItem('task', addedTask);
 console.log(localStorage.getItem('task'));
+
+*/
+
+
+
 
 

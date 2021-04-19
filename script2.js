@@ -5,6 +5,9 @@ function neuesLi(eingabetext){
     if(eingabetext!==''){
         neuLi.appendChild( neuText );
         neuLi.setAttribute('class','border');
+var num = Math.floor((Math.random()*100)+1);
+//console.log(num)
+        neuLi.setAttribute('data-key', num);
     }
     else {
         alert("Add a task!");
@@ -138,6 +141,7 @@ console.log(data.tasks[1].task);
 
 /*
 let dataToSend = {
+    id: "333",
     task: "task3"
 };
 
@@ -156,13 +160,12 @@ fetch('http://127.0.0.1:8080/myData.json', {
 .then(data => {
   console.log('Success:', data);
 })
-.catch((error) => {
-  console.error('Error:', error);
-});
+
 
 */
+
  
-/*
+
 var addedTask = document.getElementById('eingabe').value;
 
 
@@ -170,7 +173,7 @@ var addedTask = document.getElementById('eingabe').value;
 localStorage.setItem('task', addedTask);
 console.log(localStorage.getItem('task'));
 
-*/
+
 
 
 

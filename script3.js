@@ -9,8 +9,8 @@ var data = JSON.stringify({
 });
 
 
-localStorage.setItem('Key', num);
-console.log(localStorage.getItem('Key'));
+//localStorage.setItem('Key', num);
+//console.log(localStorage.getItem('Key'));
 
 
 let xhr = new XMLHttpRequest();

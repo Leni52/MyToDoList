@@ -38,6 +38,11 @@ function neuesLi(eingabetext){
     neuLi.appendChild( neuText );
     neuLi.setAttribute('class','border');
     papa.appendChild(btnClose);
+
+    
+localStorage.setItem('Key', lastId);
+console.log(localStorage.getItem('Key'));
+
 }
 }
 //////////////////////
